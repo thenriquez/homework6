@@ -1,11 +1,36 @@
-h1 {
+#projects {
+  font-size: 30px;
   text-align: center;
-  margin-bottom: 25px;
 }
 
-img {
+h2 {
+  font-size: 18px;
+  text-align: center;
+  margin: 7px;
+}
+
+img {`
   height: 210px;
   width: 210px;
   display: block;
   margin: 0 auto;
+}
+
+#header {
+  background: #87F5FB;
+}
+
+#developer_tag {
+  color: white;
+  background: #726DA8;
+  border: solid black 2px;
+  margin-bottom: 50px;
+}
+
+.nav {
+  background: #7D8CC4;
+}
+
+.header-link {
+  color: white;
 }
