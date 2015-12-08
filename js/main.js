@@ -24,6 +24,7 @@ $(document).ready(function () {
     commitURL += "/commits";
 
     var newLink = $("<a>")
+      .attr("class", "unclicked")
       .attr("href", commitURL)
       .append(repoName);
 
@@ -39,7 +40,7 @@ $(document).ready(function () {
   }
 
 
-  $(document).on("click", "a", function(e) {
+  $(document).on("click", ".unclicked", function(e) {
     e.preventDefault();
 
     $.ajax({
@@ -53,17 +54,22 @@ $(document).ready(function () {
           var authorList = appendAuthor(commits[i]);
           var linkList = appendLink(commits[i]);
 
-          var commitLink = $("<a>")
+          var commitURL = $("<a>")
+            .removeClass("unclicked")
             .attr("href", linkList)
             .append(commitList);
 
           $(this)
             .parent()
+            .append("<h4>Commit # " + (i+1) + "</h4>")
             .append("<p>")
-            .append(commitLink)
+            .append("Commit Message: ")
+            .append(commitURL)
             .append("<p>")
+            .append("Date: ")            
             .append(dateList)
             .append("<p>")
+            .append("Author: ")
             .append(authorList)
           }
       },
@@ -72,6 +78,7 @@ $(document).ready(function () {
         console.log(textstatus);
         console.log(errorThrown);
       }
+
     });
 
     function appendCommit(commitData) {
@@ -91,7 +98,10 @@ $(document).ready(function () {
 
     function appendLink(commitData) {
       var commitLink = commitData.html_url;
+      return commitLink;
     }
+
+    $(this).nextAll().clear();
 
   });
 
