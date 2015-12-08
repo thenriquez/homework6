@@ -101,8 +101,6 @@ $(document).ready(function () {
       return commitLink;
     }
 
-    $(this).nextAll().clear();
-
   });
 
 
